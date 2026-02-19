@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products — unocheat.gay</title>
+    <title>pricing — unocheat.gay</title>
     <meta name="description" content="Browse our products. Game cheats and tools for multiple titles.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
@@ -54,7 +55,7 @@
             color: inherit;
         }
 
-        /* --- NAV --- */
+        /* NAV */
         nav {
             position: fixed;
             top: 0;
@@ -142,7 +143,107 @@
             background: rgba(244, 114, 182, 0.04);
         }
 
-        /* --- PAGE HERO --- */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 110;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #a1a1aa;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(5, 5, 6, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .mobile-nav.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .mobile-nav a {
+            font-size: 18px;
+            font-weight: 500;
+            color: #a1a1aa;
+            padding: 14px 32px;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .mobile-nav a:hover {
+            color: #fafafa;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .mobile-nav .mobile-discord {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
+            padding: 16px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            color: #a1a1aa;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav .mobile-discord:hover {
+            border-color: rgba(244, 114, 182, 0.25);
+            color: #f9a8d4;
+            background: rgba(244, 114, 182, 0.04);
+        }
+
+        /* Rest of your original styles (page-hero, products, faq, footer, etc.) */
         .page-hero {
             padding: 160px 2rem 60px;
             text-align: center;
@@ -193,7 +294,6 @@
             line-height: 1.7;
         }
 
-        /* --- PRODUCT CARDS --- */
         .products-section {
             padding: 40px 2rem 140px;
         }
@@ -418,10 +518,9 @@
             border-color: rgba(255, 255, 255, 0.12);
             color: #a1a1aa;
             background: rgba(255, 255, 255, 0.02);
-            box-shadow: none;
         }
 
-        /* --- FAQ --- */
+        /* FAQ */
         .faq {
             padding: 60px 2rem 140px;
         }
@@ -487,7 +586,7 @@
             padding-top: 12px;
         }
 
-        /* --- FOOTER --- */
+        /* FOOTER */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.03);
             padding: 2.5rem 2rem;
@@ -545,7 +644,7 @@
             color: #f9a8d4;
         }
 
-        /* --- ANIM --- */
+        /* ANIM */
         .reveal {
             opacity: 0;
             transform: translateY(24px);
@@ -585,67 +684,35 @@
             }
         }
 
-        /* --- RESPONSIVE --- */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             nav {
                 padding: 0 1rem;
             }
 
-            .nav-links a:not(.nav-discord-btn) {
+            .nav-links {
                 display: none;
             }
 
-            .nav-discord-btn {
-                margin-left: 0;
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: flex;
             }
 
             .page-hero {
                 padding: 130px 1.25rem 40px;
             }
 
-            .page-hero h1 {
-                font-size: clamp(30px, 8vw, 44px);
-                letter-spacing: -1.5px;
-            }
-
-            .page-hero p {
-                font-size: 13px;
-                padding: 0 0.5rem;
-            }
-
-            .products-section {
-                padding: 30px 1.25rem 100px;
-            }
-
             .products-grid {
                 grid-template-columns: 1fr;
-                max-width: 100%;
-                margin: 0 auto;
                 gap: 14px;
-            }
-
-            .product-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .product-card .game-name {
-                font-size: 18px;
-            }
-
-            .product-price .amount {
-                font-size: 30px;
             }
 
             .faq {
                 padding: 40px 1.25rem 100px;
-            }
-
-            .faq .section-title {
-                font-size: 24px;
-            }
-
-            .faq-q {
-                font-size: 13px;
             }
 
             .footer-inner {
@@ -665,44 +732,43 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
-        @media (max-width: 380px) {
-            .page-hero h1 {
-                font-size: 28px;
-                letter-spacing: -1px;
-            }
-
-            .section-label {
-                font-size: 8px;
-                letter-spacing: 2.5px;
-            }
-
-            .product-card {
-                padding: 1.5rem 1.25rem;
-            }
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- Nav -->
+    <!-- Navigation -->
     <nav>
         <div class="nav-inner">
             <a href="/" class="nav-brand">
                 <img src="Astolfo.webp" alt="Logo">
                 <span>unocheat.gay</span>
             </a>
+
             <div class="nav-links">
-                <a href="/#products">products</a>
                 <a href="/pricing" class="active">pricing</a>
                 <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="nav-discord-btn">
                     <i class="fab fa-discord"></i>
                     discord
                 </a>
             </div>
+
+            <button class="nav-hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile overlay menu -->
+    <div class="mobile-nav">
+        <a href="/pricing" class="active">pricing</a>
+        <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="mobile-discord">
+            <i class="fab fa-discord"></i>
+            join discord
+        </a>
+    </div>
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -715,20 +781,13 @@
     <section class="products-section">
         <div class="products-wrap">
             <div class="products-grid reveal">
-
-                <!-- ============================================ -->
-                <!-- PRODUCT 1: ROBLOX                            -->
-                <!-- To edit: change game-name, game-desc, price, -->
-                <!-- features, and status (online/updating/offline)-->
-                <!-- ============================================ -->
+                <!-- Roblox -->
                 <div class="product-card">
                     <div class="game-icon"><i class="fas fa-dice-d6"></i></div>
                     <div class="game-name">Roblox</div>
                     <div class="game-desc">External cheat — aimbot, ESP, fly, speed, noclip. Usermode & undetected.
                     </div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
+                    <div class="game-status online"><span class="dot"></span> online</div>
                     <div class="product-price">
                         <span class="currency">$</span>
                         <span class="amount">10</span>
@@ -743,16 +802,12 @@
                     <button class="product-btn">purchase</button>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- PRODUCT 2: FORTNITE                          -->
-                <!-- ============================================ -->
+                <!-- Fortnite -->
                 <div class="product-card">
                     <div class="game-icon"><i class="fas fa-crosshairs"></i></div>
                     <div class="game-name">Fortnite</div>
                     <div class="game-desc">Kernel-level cheat — aimbot, ESP, radar, and full customization.</div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
+                    <div class="game-status online"><span class="dot"></span> online</div>
                     <div class="product-price">
                         <span class="currency">$</span>
                         <span class="amount">20</span>
@@ -767,16 +822,12 @@
                     <button class="product-btn">purchase</button>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- PRODUCT 3: VALORANT                          -->
-                <!-- ============================================ -->
+                <!-- Valorant -->
                 <div class="product-card">
                     <div class="game-icon"><i class="fas fa-bolt"></i></div>
                     <div class="game-name">Valorant</div>
                     <div class="game-desc">External overlay — triggerbot, ESP, radar. Vanguard bypass built in.</div>
-                    <div class="game-status updating">
-                        <span class="dot"></span> updating
-                    </div>
+                    <div class="game-status updating"><span class="dot"></span> updating</div>
                     <div class="product-price">
                         <span class="currency">$</span>
                         <span class="amount">25</span>
@@ -791,16 +842,12 @@
                     <button class="product-btn secondary">coming soon</button>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- PRODUCT 4: CS2                               -->
-                <!-- ============================================ -->
+                <!-- CS2 -->
                 <div class="product-card">
                     <div class="game-icon"><i class="fas fa-gun"></i></div>
                     <div class="game-name">CS2</div>
                     <div class="game-desc">External cheat — aimbot, wallhack, triggerbot. VAC undetected.</div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
+                    <div class="game-status online"><span class="dot"></span> online</div>
                     <div class="product-price">
                         <span class="currency">$</span>
                         <span class="amount">15</span>
@@ -815,16 +862,12 @@
                     <button class="product-btn">purchase</button>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- PRODUCT 5: RUST                              -->
-                <!-- ============================================ -->
+                <!-- Rust -->
                 <div class="product-card">
                     <div class="game-icon"><i class="fas fa-shield-halved"></i></div>
                     <div class="game-name">Rust</div>
                     <div class="game-desc">Internal cheat — aimbot, ESP, no recoil. EAC bypass included.</div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
+                    <div class="game-status online"><span class="dot"></span> online</div>
                     <div class="product-price">
                         <span class="currency">$</span>
                         <span class="amount">20</span>
@@ -839,17 +882,13 @@
                     <button class="product-btn">purchase</button>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- PRODUCT 6: SPOOFER                           -->
-                <!-- ============================================ -->
+                <!-- HWID Spoofer -->
                 <div class="product-card">
                     <div class="game-icon"><i class="fas fa-fingerprint"></i></div>
                     <div class="game-name">HWID Spoofer</div>
                     <div class="game-desc">Universal spoofer — works with all games. Clean your hardware ID in seconds.
                     </div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
+                    <div class="game-status online"><span class="dot"></span> online</div>
                     <div class="product-price">
                         <span class="currency">$</span>
                         <span class="amount">8</span>
@@ -863,7 +902,6 @@
                     </ul>
                     <button class="product-btn">purchase</button>
                 </div>
-
             </div>
         </div>
     </section>
@@ -931,7 +969,7 @@
                     <a href="https://x4v.dev" target="_blank" class="url">x4v.dev</a>
                 </div>
             </div>
-            <div class="footer-copy">&copy; 2026 unocheat.gay</div>
+            <div class="footer-copy">© 2026 unocheat.gay</div>
             <div class="footer-social">
                 <a href="https://discord.gg/Vcr8wUvHXg" target="_blank"><i class="fab fa-discord"></i></a>
             </div>
@@ -939,19 +977,38 @@
     </footer>
 
     <script>
+        // Hamburger menu
+        const hamburger = document.querySelector('.nav-hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        if (hamburger && mobileNav) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                mobileNav.classList.toggle('open');
+            });
+
+            // Close menu when clicking links
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    mobileNav.classList.remove('open');
+                });
+            });
+        }
+
         // Scroll reveal
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('show');
-                    obs.unobserve(e.target);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // FAQ accordion
+        // FAQ accordion (single open at a time)
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 const isOpen = item.classList.contains('open');

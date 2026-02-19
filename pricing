@@ -695,7 +695,7 @@
             </a>
             <div class="nav-links">
                 <a href="/#products">products</a>
-                <a href="pricing.html" class="active">pricing</a>
+                <a href="pricing" class="active">pricing</a>
                 <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="nav-discord-btn">
                     <i class="fab fa-discord"></i>
                     discord

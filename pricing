@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products — unocheat.gay</title>
+    <meta name="description" content="Browse our products. Game cheats and tools for multiple titles.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 99px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(244, 114, 182, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
+            scrollbar-width: thin;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #050506;
+            color: #71717a;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 0 2rem;
+            background: rgba(5, 5, 6, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-brand img {
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            object-fit: cover;
+        }
+
+        .nav-brand span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fafafa;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #3f3f46;
+            padding: 7px 16px;
+            border-radius: 99px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #a1a1aa;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .nav-links a.active {
+            color: #f9a8d4;
+            background: rgba(244, 114, 182, 0.06);
+        }
+
+        .nav-discord-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 18px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #52525b;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 99px;
+            transition: all 0.3s ease;
+            margin-left: 8px;
+        }
+
+        .nav-discord-btn:hover {
+            border-color: rgba(244, 114, 182, 0.25);
+            color: #f9a8d4;
+            background: rgba(244, 114, 182, 0.04);
+        }
+
+        /* --- PAGE HERO --- */
+        .page-hero {
+            padding: 160px 2rem 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-label {
+            font-size: 9px;
+            letter-spacing: 3.5px;
+            color: #f472b6;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        .page-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 700;
+            color: #fafafa;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero h1 .accent {
+            color: #f472b6;
+        }
+
+        .page-hero p {
+            font-size: 14px;
+            color: #3f3f46;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* --- PRODUCT CARDS --- */
+        .products-section {
+            padding: 40px 2rem 140px;
+        }
+
+        .products-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .product-card {
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 18px;
+            padding: 2.5rem 2rem;
+            background: #0a0a0c;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(244, 114, 182, 0.02) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .product-card:hover {
+            border-color: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card .game-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(244, 114, 182, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 18px;
+            color: #f472b6;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .game-icon {
+            background: rgba(244, 114, 182, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .product-card .game-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #fafafa;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .product-card .game-desc {
+            font-size: 12px;
+            color: #3f3f46;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .product-card .game-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-status.online {
+            color: #4ade80;
+        }
+
+        .game-status.online .dot {
+            background: #4ade80;
+        }
+
+        .game-status.updating {
+            color: #facc15;
+        }
+
+        .game-status.updating .dot {
+            background: #facc15;
+        }
+
+        .game-status.offline {
+            color: #ef4444;
+        }
+
+        .game-status.offline .dot {
+            background: #ef4444;
+        }
+
+        .game-status .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price .currency {
+            font-size: 16px;
+            color: #52525b;
+            font-weight: 600;
+        }
+
+        .product-price .amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #fafafa;
+            letter-spacing: -1.5px;
+        }
+
+        .product-price .period {
+            font-size: 12px;
+            color: #27272a;
+            font-weight: 500;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .product-features li {
+            font-size: 12px;
+            color: #52525b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-features li i {
+            font-size: 9px;
+            color: #f472b6;
+            width: 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .product-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+            background: #fafafa;
+            color: #09090b;
+        }
+
+        .product-btn:hover {
+            background: #f472b6;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15);
+        }
+
+        .product-btn:active {
+            transform: scale(0.97);
+        }
+
+        .product-btn.secondary {
+            background: transparent;
+            color: #52525b;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .product-btn.secondary:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #a1a1aa;
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: none;
+        }
+
+        /* --- FAQ --- */
+        .faq {
+            padding: 60px 2rem 140px;
+        }
+
+        .faq-wrap {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq .section-title {
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            color: #fafafa;
+            letter-spacing: -1px;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 500;
+            color: #a1a1aa;
+            transition: color 0.3s;
+        }
+
+        .faq-item:hover .faq-q {
+            color: #fafafa;
+        }
+
+        .faq-q i {
+            font-size: 10px;
+            color: #3f3f46;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.open .faq-q i {
+            transform: rotate(180deg);
+            color: #f472b6;
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 12.5px;
+            color: #3f3f46;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding-top: 12px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 2.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand img {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .footer-brand .name {
+            font-size: 12px;
+            font-weight: 500;
+            color: #52525b;
+        }
+
+        .footer-brand .url {
+            font-size: 10px;
+            color: #27272a;
+            transition: color 0.3s;
+        }
+
+        .footer-brand .url:hover {
+            color: #f9a8d4;
+        }
+
+        .footer-copy {
+            font-size: 10px;
+            color: #1a1a1e;
+        }
+
+        .footer-social a {
+            font-size: 16px;
+            color: #1a1a1e;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #f9a8d4;
+        }
+
+        /* --- ANIM --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-hero .section-label,
+        .page-hero h1,
+        .page-hero p {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .page-hero .section-label {
+            animation-delay: 0.1s;
+        }
+
+        .page-hero h1 {
+            animation-delay: 0.2s;
+        }
+
+        .page-hero p {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .nav-links a:not(.nav-discord-btn) {
+                display: none;
+            }
+
+            .nav-discord-btn {
+                margin-left: 0;
+            }
+
+            .page-hero {
+                padding: 130px 1.25rem 40px;
+            }
+
+            .page-hero h1 {
+                font-size: clamp(30px, 8vw, 44px);
+                letter-spacing: -1.5px;
+            }
+
+            .page-hero p {
+                font-size: 13px;
+                padding: 0 0.5rem;
+            }
+
+            .products-section {
+                padding: 30px 1.25rem 100px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+                margin: 0 auto;
+                gap: 14px;
+            }
+
+            .product-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .product-card .game-name {
+                font-size: 18px;
+            }
+
+            .product-price .amount {
+                font-size: 30px;
+            }
+
+            .faq {
+                padding: 40px 1.25rem 100px;
+            }
+
+            .faq .section-title {
+                font-size: 24px;
+            }
+
+            .faq-q {
+                font-size: 13px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 1.25rem;
+                text-align: center;
+            }
+
+            .footer-brand {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 380px) {
+            .page-hero h1 {
+                font-size: 28px;
+                letter-spacing: -1px;
+            }
+
+            .section-label {
+                font-size: 8px;
+                letter-spacing: 2.5px;
+            }
+
+            .product-card {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="Untitled-2.html" class="nav-brand">
+                <img src="Astolfo1.webp" alt="Logo">
+                <span>unocheat.gay</span>
+            </a>
+            <div class="nav-links">
+                <a href="Untitled-2.html#products">products</a>
+                <a href="pricing.html" class="active">pricing</a>
+                <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="nav-discord-btn">
+                    <i class="fab fa-discord"></i>
+                    discord
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="section-label">products</div>
+        <h1>our products<span class="accent">.</span></h1>
+        <p>pick your game, grab a product, and get going. each one built clean and kept updated.</p>
+    </section>
+
+    <!-- Product Cards -->
+    <section class="products-section">
+        <div class="products-wrap">
+            <div class="products-grid reveal">
+
+                <!-- ============================================ -->
+                <!-- PRODUCT 1: ROBLOX                            -->
+                <!-- To edit: change game-name, game-desc, price, -->
+                <!-- features, and status (online/updating/offline)-->
+                <!-- ============================================ -->
+                <div class="product-card">
+                    <div class="game-icon"><i class="fas fa-dice-d6"></i></div>
+                    <div class="game-name">Roblox</div>
+                    <div class="game-desc">External cheat — aimbot, ESP, fly, speed, noclip. Usermode & undetected.
+                    </div>
+                    <div class="game-status online">
+                        <span class="dot"></span> online
+                    </div>
+                    <div class="product-price">
+                        <span class="currency">$</span>
+                        <span class="amount">10</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> silent aimbot</li>
+                        <li><i class="fas fa-check"></i> clean ESP</li>
+                        <li><i class="fas fa-check"></i> fly / speed / noclip</li>
+                        <li><i class="fas fa-check"></i> auto updates</li>
+                    </ul>
+                    <button class="product-btn">purchase</button>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- PRODUCT 2: FORTNITE                          -->
+                <!-- ============================================ -->
+                <div class="product-card">
+                    <div class="game-icon"><i class="fas fa-crosshairs"></i></div>
+                    <div class="game-name">Fortnite</div>
+                    <div class="game-desc">Kernel-level cheat — aimbot, ESP, radar, and full customization.</div>
+                    <div class="game-status online">
+                        <span class="dot"></span> online
+                    </div>
+                    <div class="product-price">
+                        <span class="currency">$</span>
+                        <span class="amount">20</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> prediction aimbot</li>
+                        <li><i class="fas fa-check"></i> box / skeleton ESP</li>
+                        <li><i class="fas fa-check"></i> radar hack</li>
+                        <li><i class="fas fa-check"></i> HWID spoofer included</li>
+                    </ul>
+                    <button class="product-btn">purchase</button>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- PRODUCT 3: VALORANT                          -->
+                <!-- ============================================ -->
+                <div class="product-card">
+                    <div class="game-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="game-name">Valorant</div>
+                    <div class="game-desc">External overlay — triggerbot, ESP, radar. Vanguard bypass built in.</div>
+                    <div class="game-status updating">
+                        <span class="dot"></span> updating
+                    </div>
+                    <div class="product-price">
+                        <span class="currency">$</span>
+                        <span class="amount">25</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> triggerbot</li>
+                        <li><i class="fas fa-check"></i> player ESP</li>
+                        <li><i class="fas fa-check"></i> 2D radar</li>
+                        <li><i class="fas fa-check"></i> Vanguard bypass</li>
+                    </ul>
+                    <button class="product-btn secondary">coming soon</button>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- PRODUCT 4: CS2                               -->
+                <!-- ============================================ -->
+                <div class="product-card">
+                    <div class="game-icon"><i class="fas fa-gun"></i></div>
+                    <div class="game-name">CS2</div>
+                    <div class="game-desc">External cheat — aimbot, wallhack, triggerbot. VAC undetected.</div>
+                    <div class="game-status online">
+                        <span class="dot"></span> online
+                    </div>
+                    <div class="product-price">
+                        <span class="currency">$</span>
+                        <span class="amount">15</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> smooth aimbot</li>
+                        <li><i class="fas fa-check"></i> wallhack</li>
+                        <li><i class="fas fa-check"></i> triggerbot</li>
+                        <li><i class="fas fa-check"></i> skin changer</li>
+                    </ul>
+                    <button class="product-btn">purchase</button>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- PRODUCT 5: RUST                              -->
+                <!-- ============================================ -->
+                <div class="product-card">
+                    <div class="game-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="game-name">Rust</div>
+                    <div class="game-desc">Internal cheat — aimbot, ESP, no recoil. EAC bypass included.</div>
+                    <div class="game-status online">
+                        <span class="dot"></span> online
+                    </div>
+                    <div class="product-price">
+                        <span class="currency">$</span>
+                        <span class="amount">20</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> magic bullet</li>
+                        <li><i class="fas fa-check"></i> player ESP</li>
+                        <li><i class="fas fa-check"></i> no recoil</li>
+                        <li><i class="fas fa-check"></i> EAC bypass</li>
+                    </ul>
+                    <button class="product-btn">purchase</button>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- PRODUCT 6: SPOOFER                           -->
+                <!-- ============================================ -->
+                <div class="product-card">
+                    <div class="game-icon"><i class="fas fa-fingerprint"></i></div>
+                    <div class="game-name">HWID Spoofer</div>
+                    <div class="game-desc">Universal spoofer — works with all games. Clean your hardware ID in seconds.
+                    </div>
+                    <div class="game-status online">
+                        <span class="dot"></span> online
+                    </div>
+                    <div class="product-price">
+                        <span class="currency">$</span>
+                        <span class="amount">8</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> all anti-cheats</li>
+                        <li><i class="fas fa-check"></i> disk / serial spoof</li>
+                        <li><i class="fas fa-check"></i> MAC spoof</li>
+                        <li><i class="fas fa-check"></i> one-click clean</li>
+                    </ul>
+                    <button class="product-btn">purchase</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-wrap reveal">
+            <div class="section-label" style="text-align:center">faq</div>
+            <div class="section-title">questions?</div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>How do I get my product after paying?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-a">You'll receive instant access via our Discord server. After payment, a bot will
+                    assign your role and you can download directly from the members-only channel.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>Can I switch products later?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-a">Yes! Your subscription is per-product. You can subscribe to as many as you want, and
+                    cancel or switch anytime.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>Is there a refund policy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-a">We offer refunds within 24 hours of purchase if you haven't used the product yet.
+                    Reach out on Discord and we'll sort it out.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>What payment methods do you accept?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-a">We accept crypto (BTC, ETH, LTC), PayPal, and card payments through our secure
+                    checkout system.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">
+                    <span>What does "updating" status mean?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-a">It means the product is being updated to work with the latest game patch. Existing
+                    users keep access — it'll be back online shortly.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="ptiszka.png" alt="ptiszka">
+                <div>
+                    <div class="name">made by ptiszka</div>
+                    <a href="https://x4v.dev" target="_blank" class="url">x4v.dev</a>
+                </div>
+            </div>
+            <div class="footer-copy">&copy; 2026 unocheat.gay</div>
+            <div class="footer-social">
+                <a href="https://discord.gg/Vcr8wUvHXg" target="_blank"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('show');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+
+</html>

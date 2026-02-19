@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
         *,
         *::before,
         *::after {
@@ -18,30 +16,24 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         ::-webkit-scrollbar {
             width: 5px;
         }
-
         ::-webkit-scrollbar-track {
             background: transparent;
         }
-
         ::-webkit-scrollbar-thumb {
             background: rgba(255, 255, 255, 0.06);
             border-radius: 99px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(244, 114, 182, 0.3);
         }
-
         html {
             scroll-behavior: smooth;
             scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
             scrollbar-width: thin;
         }
-
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: #050506;
@@ -49,12 +41,10 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
         a {
             text-decoration: none;
             color: inherit;
         }
-
         /* --- NAV --- */
         nav {
             position: fixed;
@@ -67,7 +57,6 @@
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
-
         .nav-inner {
             max-width: 1000px;
             margin: 0 auto;
@@ -76,20 +65,17 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .nav-brand {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .nav-brand img {
             width: 26px;
             height: 26px;
             border-radius: 7px;
             object-fit: cover;
         }
-
         .nav-brand span {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 16px;
@@ -97,13 +83,11 @@
             color: #fafafa;
             letter-spacing: -0.5px;
         }
-
         .nav-links {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-
         .nav-links a {
             font-size: 12.5px;
             font-weight: 500;
@@ -113,12 +97,10 @@
             transition: all 0.25s ease;
             letter-spacing: 0.01em;
         }
-
         .nav-links a:hover {
             color: #a1a1aa;
             background: rgba(255, 255, 255, 0.03);
         }
-
         .nav-discord-btn {
             display: flex;
             align-items: center;
@@ -132,13 +114,11 @@
             transition: all 0.3s ease;
             margin-left: 8px;
         }
-
         .nav-discord-btn:hover {
             border-color: rgba(244, 114, 182, 0.25);
             color: #f9a8d4;
             background: rgba(244, 114, 182, 0.04);
         }
-
         /* Hamburger */
         .nav-hamburger {
             display: none;
@@ -153,7 +133,6 @@
             padding: 4px;
             z-index: 110;
         }
-
         .nav-hamburger span {
             display: block;
             width: 100%;
@@ -162,19 +141,15 @@
             border-radius: 2px;
             transition: all 0.3s ease;
         }
-
         .nav-hamburger.open span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
-
         .nav-hamburger.open span:nth-child(2) {
             opacity: 0;
         }
-
         .nav-hamburger.open span:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
         }
-
         /* Mobile Nav Overlay */
         .mobile-nav {
             display: none;
@@ -197,13 +172,11 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
             pointer-events: none;
         }
-
         .mobile-nav.open {
             opacity: 1;
             transform: translateY(0);
             pointer-events: all;
         }
-
         .mobile-nav a {
             font-size: 18px;
             font-weight: 500;
@@ -215,12 +188,10 @@
             max-width: 300px;
             text-align: center;
         }
-
         .mobile-nav a:hover {
             color: #fafafa;
             background: rgba(255, 255, 255, 0.04);
         }
-
         .mobile-nav .mobile-discord {
             display: flex;
             align-items: center;
@@ -235,13 +206,11 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-
         .mobile-nav .mobile-discord:hover {
             border-color: rgba(244, 114, 182, 0.25);
             color: #f9a8d4;
             background: rgba(244, 114, 182, 0.04);
         }
-
         /* --- HERO --- */
         .hero {
             min-height: 90vh;
@@ -251,7 +220,6 @@
             position: relative;
             padding: 0 2rem;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -263,13 +231,11 @@
             background: radial-gradient(circle, rgba(244, 114, 182, 0.04) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .hero-content {
             text-align: center;
             position: relative;
             z-index: 2;
         }
-
         .hero-tag {
             display: inline-flex;
             align-items: center;
@@ -281,7 +247,6 @@
             font-weight: 500;
             margin-bottom: 2.5rem;
         }
-
         .hero-tag .sep {
             width: 2px;
             height: 2px;
@@ -289,7 +254,6 @@
             background: #27272a;
             margin: 0 2px;
         }
-
         .hero-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(64px, 12vw, 120px);
@@ -299,11 +263,9 @@
             line-height: 0.9;
             margin-bottom: 1.25rem;
         }
-
         .hero-title .accent {
             color: #f472b6;
         }
-
         .hero-sub {
             font-size: 15px;
             color: #3f3f46;
@@ -313,14 +275,12 @@
             max-width: 400px;
             margin: 0 auto;
         }
-
         .hero-cta {
             margin-top: 3rem;
             display: flex;
             gap: 10px;
             justify-content: center;
         }
-
         .btn {
             padding: 12px 32px;
             font-size: 13px;
@@ -335,35 +295,29 @@
             align-items: center;
             gap: 8px;
         }
-
         .btn-fill {
             background: #fafafa;
             color: #09090b;
         }
-
         .btn-fill:hover {
             background: #f472b6;
             color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15);
         }
-
         .btn-ghost {
             background: transparent;
             color: #52525b;
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
-
         .btn-ghost:hover {
             border-color: rgba(255, 255, 255, 0.12);
             color: #a1a1aa;
             background: rgba(255, 255, 255, 0.02);
         }
-
         .btn:active {
             transform: scale(0.97);
         }
-
         .hero-meta {
             margin-top: 4rem;
             display: flex;
@@ -375,7 +329,6 @@
             font-weight: 600;
             text-transform: uppercase;
         }
-
         .hero-img {
             position: absolute;
             bottom: 60px;
@@ -386,24 +339,20 @@
             transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             filter: saturate(0.9);
         }
-
         .hero-img:hover {
             opacity: 0.95;
             transform: scale(1.02) translateY(-4px);
             filter: saturate(1);
         }
-
         /* --- PRODUCTS --- */
         .products {
             padding: 80px 2rem;
             position: relative;
         }
-
         .products-wrap {
             max-width: 1000px;
             margin: 0 auto;
         }
-
         .section-label {
             text-align: center;
             font-size: 9px;
@@ -414,7 +363,6 @@
             margin-bottom: 10px;
             opacity: 0.7;
         }
-
         .section-title {
             text-align: center;
             font-family: 'Space Grotesk', sans-serif;
@@ -424,7 +372,6 @@
             letter-spacing: -1.5px;
             margin-bottom: 1rem;
         }
-
         .section-sub {
             text-align: center;
             font-size: 14px;
@@ -435,7 +382,6 @@
             margin-right: auto;
             line-height: 1.7;
         }
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -445,7 +391,6 @@
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.03);
         }
-
         .p-card {
             background: #0a0a0c;
             padding: 2.5rem 2rem;
@@ -453,7 +398,6 @@
             transition: all 0.4s ease;
             position: relative;
         }
-
         .p-card::after {
             content: '';
             position: absolute;
@@ -463,15 +407,12 @@
             transition: opacity 0.4s ease;
             pointer-events: none;
         }
-
         .p-card:hover::after {
             opacity: 1;
         }
-
         .p-card:hover {
             background: #0d0d10;
         }
-
         .p-icon {
             width: 40px;
             height: 40px;
@@ -485,12 +426,10 @@
             color: #f472b6;
             transition: all 0.3s ease;
         }
-
         .p-card:hover .p-icon {
             background: rgba(244, 114, 182, 0.08);
             transform: translateY(-2px);
         }
-
         .p-card h3 {
             font-size: 14px;
             font-weight: 600;
@@ -498,14 +437,12 @@
             margin-bottom: 6px;
             letter-spacing: -0.02em;
         }
-
         .p-card p {
             font-size: 12px;
             color: #3f3f46;
             line-height: 1.6;
             font-weight: 400;
         }
-
         .p-card .p-tag {
             display: inline-block;
             margin-top: 12px;
@@ -516,24 +453,20 @@
             opacity: 0.6;
             font-weight: 600;
         }
-
         /* --- WHY US --- */
         .why {
             padding: 60px 2rem 140px;
         }
-
         .why-wrap {
             max-width: 1000px;
             margin: 0 auto;
         }
-
         .why-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin-top: 4rem;
         }
-
         .why-card {
             text-align: center;
             padding: 2rem 1rem;
@@ -542,12 +475,10 @@
             background: rgba(255, 255, 255, 0.01);
             transition: all 0.4s ease;
         }
-
         .why-card:hover {
             border-color: rgba(244, 114, 182, 0.1);
             background: rgba(244, 114, 182, 0.02);
         }
-
         .why-card .why-num {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 36px;
@@ -556,31 +487,26 @@
             letter-spacing: -2px;
             margin-bottom: 4px;
         }
-
         .why-card .why-num .accent {
             color: #f472b6;
         }
-
         .why-card .why-label {
             font-size: 11px;
             color: #3f3f46;
             font-weight: 500;
             letter-spacing: 0.02em;
         }
-
         /* --- CTA --- */
         .cta-section {
             padding: 100px 2rem 140px;
             display: flex;
             justify-content: center;
         }
-
         .cta-card {
             text-align: center;
             max-width: 400px;
             width: 100%;
         }
-
         .cta-card img {
             width: 180px;
             border-radius: 14px;
@@ -589,12 +515,10 @@
             transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             filter: saturate(0.9);
         }
-
         .cta-card img:hover {
             transform: scale(1.03) translateY(-4px);
             filter: saturate(1);
         }
-
         .cta-card h2 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 42px;
@@ -603,7 +527,6 @@
             letter-spacing: -1.5px;
             margin-bottom: 6px;
         }
-
         .cta-card .ver {
             font-size: 11px;
             color: #27272a;
@@ -611,7 +534,6 @@
             font-weight: 500;
             letter-spacing: 0.5px;
         }
-
         .cta-btn {
             width: 100%;
             padding: 16px;
@@ -630,24 +552,20 @@
             justify-content: center;
             gap: 8px;
         }
-
         .cta-btn:hover {
             background: #f472b6;
             color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15);
         }
-
         .cta-btn:active {
             transform: scale(0.97);
         }
-
         /* --- FOOTER --- */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.03);
             padding: 2.5rem 2rem;
         }
-
         .footer-inner {
             max-width: 1000px;
             margin: 0 auto;
@@ -655,52 +573,43 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .footer-brand {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .footer-brand img {
             width: 30px;
             height: 30px;
             border-radius: 8px;
             object-fit: cover;
         }
-
         .footer-brand .name {
             font-size: 12px;
             font-weight: 500;
             color: #52525b;
         }
-
         .footer-brand .url {
             font-size: 10px;
             color: #27272a;
             transition: color 0.3s;
         }
-
         .footer-brand .url:hover {
             color: #f9a8d4;
         }
-
         .footer-copy {
             font-size: 10px;
             color: #1a1a1e;
             letter-spacing: 0.02em;
         }
-
         .footer-social a {
             font-size: 16px;
             color: #1a1a1e;
             transition: color 0.3s;
         }
-
         .footer-social a:hover {
             color: #f9a8d4;
         }
-
         /* --- ANIM --- */
         .reveal {
             opacity: 0;
@@ -708,12 +617,10 @@
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         .reveal.show {
             opacity: 1;
             transform: translateY(0);
         }
-
         .hero-content .hero-tag,
         .hero-content .hero-title,
         .hero-content .hero-sub,
@@ -723,99 +630,79 @@
             transform: translateY(20px);
             animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .hero-content .hero-tag {
             animation-delay: 0.1s;
         }
-
         .hero-content .hero-title {
             animation-delay: 0.2s;
         }
-
         .hero-content .hero-sub {
             animation-delay: 0.3s;
         }
-
         .hero-content .hero-cta {
             animation-delay: 0.4s;
         }
-
         .hero-content .hero-meta {
             animation-delay: 0.55s;
         }
-
         .hero-img {
             opacity: 0;
             animation: fadeIn 1s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         @keyframes fadeUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         @keyframes fadeIn {
             to {
                 opacity: 0.7;
             }
         }
-
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
             .nav-links a:not(.nav-discord-btn) {
                 font-size: 12px;
                 padding: 6px 12px;
             }
-
             .nav-discord-btn {
                 padding: 6px 14px;
                 font-size: 12px;
             }
         }
-
         @media (max-width: 768px) {
             nav {
                 padding: 0 1rem;
             }
-
             .nav-links {
                 display: none;
             }
-
             .nav-hamburger {
                 display: flex;
             }
-
             .mobile-nav {
                 display: flex;
             }
-
             .hero {
                 min-height: 85vh;
                 padding: 0 1.25rem;
             }
-
             .hero-img {
                 display: none;
             }
-
             .hero-title {
                 font-size: clamp(48px, 14vw, 80px);
                 letter-spacing: -2px;
             }
-
             .hero-sub {
                 font-size: 14px;
                 padding: 0 0.5rem;
             }
-
             .hero-cta {
                 flex-direction: column;
                 align-items: center;
             }
-
             .btn {
                 width: 100%;
                 max-width: 300px;
@@ -823,106 +710,84 @@
                 justify-content: center;
                 padding: 14px 24px;
             }
-
             .hero-meta {
                 flex-direction: column;
                 gap: 0.5rem;
                 margin-top: 2.5rem;
             }
-
             .products {
                 padding: 60px 1.25rem;
             }
-
             .section-title {
                 font-size: 28px;
                 letter-spacing: -1px;
             }
-
             .section-sub {
                 font-size: 13px;
                 padding: 0 0.5rem;
             }
-
             .products-grid {
                 grid-template-columns: 1fr;
             }
-
             .p-card {
                 padding: 2rem 1.5rem;
             }
-
             .why {
                 padding: 40px 1.25rem 80px;
             }
-
             .why-grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
                 margin-top: 2.5rem;
             }
-
             .why-card {
                 padding: 1.5rem 1rem;
             }
-
             .why-card .why-num {
                 font-size: 30px;
             }
-
             .cta-section {
                 padding: 60px 1.25rem 100px;
             }
-
             .cta-card img {
                 width: 140px;
                 margin-bottom: 2rem;
             }
-
             .cta-card h2 {
                 font-size: 32px;
             }
-
             .cta-btn {
                 padding: 14px;
             }
-
             .footer-inner {
                 flex-direction: column;
                 gap: 1.25rem;
                 text-align: center;
             }
-
             .footer-brand {
                 flex-direction: column;
                 gap: 8px;
             }
         }
-
         @media (max-width: 380px) {
             .hero-title {
                 font-size: 42px;
                 letter-spacing: -1.5px;
             }
-
             .hero-tag {
                 font-size: 8px;
                 letter-spacing: 2.5px;
             }
-
             .section-title {
                 font-size: 24px;
             }
-
             .btn {
                 font-size: 12px;
             }
         }
     </style>
 </head>
-
 <body>
-
     <!-- Nav -->
     <nav>
         <div class="nav-inner">
@@ -932,7 +797,7 @@
             </a>
             <div class="nav-links">
                 <a href="#products">products</a>
-                <a href="pricing">pricing</a>
+                <a href="pricing.html">pricing</a>
                 <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="nav-discord-btn">
                     <i class="fab fa-discord"></i>
                     discord
@@ -945,38 +810,31 @@
             </button>
         </div>
     </nav>
-
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-tag">
                 software <span class="sep"></span> tools <span class="sep"></span> gaming
             </div>
-
             <h1 class="hero-title">unocheat<span class="accent">.</span>gay</h1>
-
             <p class="hero-sub">
                 premium tools, clean builds, zero bloat.<br>pick what you need and get going.
             </p>
-
             <div class="hero-cta">
-                <a href="pricing" class="btn btn-fill">
+                <a href="pricing.html" class="btn btn-fill">
                     <i class="fas fa-tags" style="font-size:12px"></i>
                     view pricing
                 </a>
                 <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="btn btn-ghost">join discord</a>
             </div>
-
             <div class="hero-meta">
                 <span>instant delivery</span>
                 <span>no key system</span>
                 <span>24/7 support</span>
             </div>
         </div>
-
         <img src="Astolfo.webp" alt="Astolfo" class="hero-img">
     </section>
-
     <!-- Products -->
     <section id="products" class="products">
         <div class="products-wrap reveal">
@@ -984,7 +842,6 @@
             <h2 class="section-title">what we offer.</h2>
             <p class="section-sub">from game cheats to utility tools — we build clean, reliable software that just
                 works (somehow).</p>
-
             <div class="products-grid">
                 <div class="p-card">
                     <div class="p-icon"><i class="fas fa-crosshairs"></i></div>
@@ -1007,13 +864,11 @@
             </div>
         </div>
     </section>
-
     <!-- Why Us -->
     <section class="why">
         <div class="why-wrap reveal">
             <div class="section-label">why us</div>
             <h2 class="section-title">numbers don't lie.</h2>
-
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-num">2k<span class="accent">+</span></div>
@@ -1027,11 +882,9 @@
                     <div class="why-num">24<span class="accent">/7</span></div>
                     <div class="why-label">support</div>
                 </div>
-
             </div>
         </div>
     </section>
-
     <!-- CTA -->
     <section class="cta-section">
         <div class="cta-card reveal">
@@ -1044,7 +897,6 @@
             </a>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="footer-inner">
@@ -1061,7 +913,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         // Scroll reveal
         const obs = new IntersectionObserver((entries) => {
@@ -1072,45 +923,7 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
 </body>
-
 </html>
-
-<!-- Astolfo Nya Sound Effect -->
-<audio id="nya1" preload="auto">
-    <source src="Nya1.mp3" type="audio/mpeg">
-</audio>
-<audio id="nya2" preload="auto">
-    <source src="Nya2.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-    // Get the bottom Astolfo image (it's the <img> inside .cta-card)
-    const astolfoCTA = document.querySelector('.cta-card img');
-
-    // Array of the two audio elements
-    const nyaSounds = [
-        document.getElementById('nya1'),
-        document.getElementById('nya2')
-    ];
-
-    astolfoCTA.addEventListener('click', () => {
-        // Pick random sound (0 or 1)
-        const randomIndex = Math.floor(Math.random() * nyaSounds.length);
-        const selectedSound = nyaSounds[randomIndex];
-
-        // Optional: rewind to start if you want to allow spamming clicks
-        selectedSound.currentTime = 0;
-
-        // Play it!
-        selectedSound.play().catch(err => {
-            console.log("Audio play failed (maybe autoplay block?):", err);
-        });
-    });
-</script>
-
-
-

@@ -1079,5 +1079,37 @@
 
 </html>
 
+<!-- Astolfo Nya Sound Effect -->
+<audio id="nya1" preload="auto">
+    <source src="Nya1.mp3" type="audio/mpeg">
+</audio>
+<audio id="nya2" preload="auto">
+    <source src="Nya2.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // Get the bottom Astolfo image (it's the <img> inside .cta-card)
+    const astolfoCTA = document.querySelector('.cta-card img');
+
+    // Array of the two audio elements
+    const nyaSounds = [
+        document.getElementById('nya1'),
+        document.getElementById('nya2')
+    ];
+
+    astolfoCTA.addEventListener('click', () => {
+        // Pick random sound (0 or 1)
+        const randomIndex = Math.floor(Math.random() * nyaSounds.length);
+        const selectedSound = nyaSounds[randomIndex];
+
+        // Optional: rewind to start if you want to allow spamming clicks
+        selectedSound.currentTime = 0;
+
+        // Play it!
+        selectedSound.play().catch(err => {
+            console.log("Audio play failed (maybe autoplay block?):", err);
+        });
+    });
+</script>
 
 

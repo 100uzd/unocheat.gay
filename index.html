@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products — unocheat.gay</title>
-    <meta name="description" content="Browse our products. Game cheats and tools for multiple titles.">
+    <title>unocheat.gay — premium tools</title>
+    <meta name="description"
+        content="Premium software tools, game cheats, and utilities. No keys, no bloatware — just clean products.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
@@ -110,16 +111,12 @@
             padding: 7px 16px;
             border-radius: 99px;
             transition: all 0.25s ease;
+            letter-spacing: 0.01em;
         }
 
         .nav-links a:hover {
             color: #a1a1aa;
             background: rgba(255, 255, 255, 0.03);
-        }
-
-        .nav-links a.active {
-            color: #f9a8d4;
-            background: rgba(244, 114, 182, 0.06);
         }
 
         .nav-discord-btn {
@@ -142,26 +139,273 @@
             background: rgba(244, 114, 182, 0.04);
         }
 
-        /* --- PAGE HERO --- */
-        .page-hero {
-            padding: 160px 2rem 60px;
-            text-align: center;
-            position: relative;
+        /* Hamburger */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 110;
         }
 
-        .page-hero::before {
+        .nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #a1a1aa;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Nav Overlay */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(5, 5, 6, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .mobile-nav.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .mobile-nav a {
+            font-size: 18px;
+            font-weight: 500;
+            color: #a1a1aa;
+            padding: 14px 24px;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .mobile-nav a:hover {
+            color: #fafafa;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .mobile-nav .mobile-discord {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 14px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            color: #52525b;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav .mobile-discord:hover {
+            border-color: rgba(244, 114, 182, 0.25);
+            color: #f9a8d4;
+            background: rgba(244, 114, 182, 0.04);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero::before {
             content: '';
             position: absolute;
-            top: 30%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
+            width: 700px;
+            height: 700px;
             background: radial-gradient(circle, rgba(244, 114, 182, 0.04) 0%, transparent 70%);
             pointer-events: none;
         }
 
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 9px;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: #3f3f46;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-tag .sep {
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: #27272a;
+            margin: 0 2px;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(64px, 12vw, 120px);
+            font-weight: 700;
+            color: #fafafa;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title .accent {
+            color: #f472b6;
+        }
+
+        .hero-sub {
+            font-size: 15px;
+            color: #3f3f46;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.7;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .hero-cta {
+            margin-top: 3rem;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-fill {
+            background: #fafafa;
+            color: #09090b;
+        }
+
+        .btn-fill:hover {
+            background: #f472b6;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #52525b;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #a1a1aa;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .hero-meta {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            font-size: 9px;
+            letter-spacing: 2.5px;
+            color: #27272a;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hero-img {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            width: 280px;
+            border-radius: 16px;
+            opacity: 0.7;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            filter: saturate(0.9);
+        }
+
+        .hero-img:hover {
+            opacity: 0.95;
+            transform: scale(1.02) translateY(-4px);
+            filter: saturate(1);
+        }
+
+        /* --- PRODUCTS --- */
+        .products {
+            padding: 80px 2rem;
+            position: relative;
+        }
+
+        .products-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         .section-label {
+            text-align: center;
             font-size: 9px;
             letter-spacing: 3.5px;
             color: #f472b6;
@@ -171,320 +415,238 @@
             opacity: 0.7;
         }
 
-        .page-hero h1 {
+        .section-title {
+            text-align: center;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(36px, 6vw, 56px);
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 600;
             color: #fafafa;
-            letter-spacing: -2px;
-            line-height: 1;
+            letter-spacing: -1.5px;
             margin-bottom: 1rem;
         }
 
-        .page-hero h1 .accent {
-            color: #f472b6;
-        }
-
-        .page-hero p {
+        .section-sub {
+            text-align: center;
             font-size: 14px;
             color: #3f3f46;
-            max-width: 400px;
-            margin: 0 auto;
+            margin-bottom: 4rem;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.7;
-        }
-
-        /* --- PRODUCT CARDS --- */
-        .products-section {
-            padding: 40px 2rem 140px;
-        }
-
-        .products-wrap {
-            max-width: 1000px;
-            margin: 0 auto;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            align-items: start;
-        }
-
-        .product-card {
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 18px;
-            padding: 2.5rem 2rem;
-            background: #0a0a0c;
-            position: relative;
-            transition: all 0.4s ease;
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        .product-card::before {
+        .p-card {
+            background: #0a0a0c;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .p-card::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(244, 114, 182, 0.02) 0%, transparent 50%);
+            background: linear-gradient(180deg, rgba(244, 114, 182, 0.02) 0%, transparent 60%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
         }
 
-        .product-card:hover {
-            border-color: rgba(255, 255, 255, 0.06);
-            transform: translateY(-4px);
-        }
-
-        .product-card:hover::before {
+        .p-card:hover::after {
             opacity: 1;
         }
 
-        .product-card .game-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        .p-card:hover {
+            background: #0d0d10;
+        }
+
+        .p-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             background: rgba(244, 114, 182, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.25rem;
-            font-size: 18px;
+            margin: 0 auto 1.25rem;
+            font-size: 15px;
             color: #f472b6;
             transition: all 0.3s ease;
         }
 
-        .product-card:hover .game-icon {
+        .p-card:hover .p-icon {
             background: rgba(244, 114, 182, 0.08);
             transform: translateY(-2px);
         }
 
-        .product-card .game-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
+        .p-card h3 {
+            font-size: 14px;
             font-weight: 600;
-            color: #fafafa;
-            letter-spacing: -0.5px;
-            margin-bottom: 4px;
+            color: #d4d4d8;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
-        .product-card .game-desc {
+        .p-card p {
             font-size: 12px;
             color: #3f3f46;
-            margin-bottom: 1.5rem;
             line-height: 1.6;
+            font-weight: 400;
         }
 
-        .product-card .game-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 10px;
-            letter-spacing: 1px;
+        .p-card .p-tag {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 9px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .game-status.online {
-            color: #4ade80;
-        }
-
-        .game-status.online .dot {
-            background: #4ade80;
-        }
-
-        .game-status.updating {
-            color: #facc15;
-        }
-
-        .game-status.updating .dot {
-            background: #facc15;
-        }
-
-        .game-status.offline {
-            color: #ef4444;
-        }
-
-        .game-status.offline .dot {
-            background: #ef4444;
-        }
-
-        .game-status .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.4;
-            }
-        }
-
-        .product-price {
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-price .currency {
-            font-size: 16px;
-            color: #52525b;
+            color: #f472b6;
+            opacity: 0.6;
             font-weight: 600;
         }
 
-        .product-price .amount {
+        /* --- WHY US --- */
+        .why {
+            padding: 60px 2rem 140px;
+        }
+
+        .why-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 4rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.01);
+            transition: all 0.4s ease;
+        }
+
+        .why-card:hover {
+            border-color: rgba(244, 114, 182, 0.1);
+            background: rgba(244, 114, 182, 0.02);
+        }
+
+        .why-card .why-num {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 36px;
             font-weight: 700;
             color: #fafafa;
-            letter-spacing: -1.5px;
+            letter-spacing: -2px;
+            margin-bottom: 4px;
         }
 
-        .product-price .period {
-            font-size: 12px;
-            color: #27272a;
-            font-weight: 500;
-        }
-
-        .product-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex-grow: 1;
-        }
-
-        .product-features li {
-            font-size: 12px;
-            color: #52525b;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .product-features li i {
-            font-size: 9px;
+        .why-card .why-num .accent {
             color: #f472b6;
-            width: 14px;
-            text-align: center;
-            flex-shrink: 0;
         }
 
-        .product-btn {
+        .why-card .why-label {
+            font-size: 11px;
+            color: #3f3f46;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        /* --- CTA --- */
+        .cta-section {
+            padding: 100px 2rem 140px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-card {
+            text-align: center;
+            max-width: 400px;
             width: 100%;
-            padding: 14px;
+        }
+
+        .cta-card img {
+            width: 180px;
+            border-radius: 14px;
+            margin: 0 auto 2.5rem;
+            display: block;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            filter: saturate(0.9);
+            cursor: pointer;
+            /* Makes it feel clickable */
+        }
+
+        .cta-card img:hover {
+            transform: scale(1.03) translateY(-4px);
+            filter: saturate(1);
+        }
+
+        .cta-card img:active {
+            transform: scale(1.08);
+            /* Tiny pop on click for feedback */
+        }
+
+        .cta-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 600;
+            color: #fafafa;
+            letter-spacing: -1.5px;
+            margin-bottom: 6px;
+        }
+
+        .cta-card .ver {
+            font-size: 11px;
+            color: #27272a;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-btn {
+            width: 100%;
+            padding: 16px;
+            background: #fafafa;
+            color: #09090b;
             font-size: 13px;
             font-weight: 600;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             font-family: 'Inter', sans-serif;
             letter-spacing: -0.01em;
-            background: #fafafa;
-            color: #09090b;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .product-btn:hover {
+        .cta-btn:hover {
             background: #f472b6;
             color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15);
         }
 
-        .product-btn:active {
+        .cta-btn:active {
             transform: scale(0.97);
-        }
-
-        .product-btn.secondary {
-            background: transparent;
-            color: #52525b;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .product-btn.secondary:hover {
-            border-color: rgba(255, 255, 255, 0.12);
-            color: #a1a1aa;
-            background: rgba(255, 255, 255, 0.02);
-            box-shadow: none;
-        }
-
-        /* --- FAQ --- */
-        .faq {
-            padding: 60px 2rem 140px;
-        }
-
-        .faq-wrap {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .faq .section-title {
-            text-align: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 30px;
-            font-weight: 600;
-            color: #fafafa;
-            letter-spacing: -1px;
-            margin-bottom: 3rem;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            padding: 20px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .faq-q {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
-            font-weight: 500;
-            color: #a1a1aa;
-            transition: color 0.3s;
-        }
-
-        .faq-item:hover .faq-q {
-            color: #fafafa;
-        }
-
-        .faq-q i {
-            font-size: 10px;
-            color: #3f3f46;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item.open .faq-q i {
-            transform: rotate(180deg);
-            color: #f472b6;
-        }
-
-        .faq-a {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            font-size: 12.5px;
-            color: #3f3f46;
-            line-height: 1.7;
-        }
-
-        .faq-item.open .faq-a {
-            max-height: 200px;
-            padding-top: 12px;
         }
 
         /* --- FOOTER --- */
@@ -533,6 +695,7 @@
         .footer-copy {
             font-size: 10px;
             color: #1a1a1e;
+            letter-spacing: 0.02em;
         }
 
         .footer-social a {
@@ -558,24 +721,39 @@
             transform: translateY(0);
         }
 
-        .page-hero .section-label,
-        .page-hero h1,
-        .page-hero p {
+        .hero-content .hero-tag,
+        .hero-content .hero-title,
+        .hero-content .hero-sub,
+        .hero-content .hero-cta,
+        .hero-content .hero-meta {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .page-hero .section-label {
+        .hero-content .hero-tag {
             animation-delay: 0.1s;
         }
 
-        .page-hero h1 {
+        .hero-content .hero-title {
             animation-delay: 0.2s;
         }
 
-        .page-hero p {
+        .hero-content .hero-sub {
             animation-delay: 0.3s;
+        }
+
+        .hero-content .hero-cta {
+            animation-delay: 0.4s;
+        }
+
+        .hero-content .hero-meta {
+            animation-delay: 0.55s;
+        }
+
+        .hero-img {
+            opacity: 0;
+            animation: fadeIn 1s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes fadeUp {
@@ -585,67 +763,135 @@
             }
         }
 
+        @keyframes fadeIn {
+            to {
+                opacity: 0.7;
+            }
+        }
+
         /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .nav-links a:not(.nav-discord-btn) {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .nav-discord-btn {
+                padding: 6px 14px;
+                font-size: 12px;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 0 1rem;
             }
 
-            .nav-links a:not(.nav-discord-btn) {
+            .nav-links {
                 display: none;
             }
 
-            .nav-discord-btn {
-                margin-left: 0;
+            .nav-hamburger {
+                display: flex;
             }
 
-            .page-hero {
-                padding: 130px 1.25rem 40px;
+            .mobile-nav {
+                display: flex;
             }
 
-            .page-hero h1 {
-                font-size: clamp(30px, 8vw, 44px);
-                letter-spacing: -1.5px;
+            .hero {
+                min-height: 85vh;
+                padding: 0 1.25rem;
             }
 
-            .page-hero p {
+            .hero-img {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: clamp(48px, 14vw, 80px);
+                letter-spacing: -2px;
+            }
+
+            .hero-sub {
+                font-size: 14px;
+                padding: 0 0.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                justify-content: center;
+                padding: 14px 24px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 2.5rem;
+            }
+
+            .products {
+                padding: 60px 1.25rem;
+            }
+
+            .section-title {
+                font-size: 28px;
+                letter-spacing: -1px;
+            }
+
+            .section-sub {
                 font-size: 13px;
                 padding: 0 0.5rem;
             }
 
-            .products-section {
-                padding: 30px 1.25rem 100px;
-            }
-
             .products-grid {
                 grid-template-columns: 1fr;
-                max-width: 100%;
-                margin: 0 auto;
-                gap: 14px;
             }
 
-            .product-card {
+            .p-card {
                 padding: 2rem 1.5rem;
             }
 
-            .product-card .game-name {
-                font-size: 18px;
+            .why {
+                padding: 40px 1.25rem 80px;
             }
 
-            .product-price .amount {
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 2.5rem;
+            }
+
+            .why-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .why-card .why-num {
                 font-size: 30px;
             }
 
-            .faq {
-                padding: 40px 1.25rem 100px;
+            .cta-section {
+                padding: 60px 1.25rem 100px;
             }
 
-            .faq .section-title {
-                font-size: 24px;
+            .cta-card img {
+                width: 140px;
+                margin-bottom: 2rem;
             }
 
-            .faq-q {
-                font-size: 13px;
+            .cta-card h2 {
+                font-size: 32px;
+            }
+
+            .cta-btn {
+                padding: 14px;
             }
 
             .footer-inner {
@@ -660,267 +906,138 @@
             }
         }
 
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 380px) {
-            .page-hero h1 {
-                font-size: 28px;
-                letter-spacing: -1px;
+            .hero-title {
+                font-size: 42px;
+                letter-spacing: -1.5px;
             }
 
-            .section-label {
+            .hero-tag {
                 font-size: 8px;
                 letter-spacing: 2.5px;
             }
 
-            .product-card {
-                padding: 1.5rem 1.25rem;
+            .section-title {
+                font-size: 24px;
+            }
+
+            .btn {
+                font-size: 12px;
             }
         }
     </style>
 </head>
 
 <body>
-
     <!-- Nav -->
     <nav>
         <div class="nav-inner">
-            <a href="/" class="nav-brand">
+            <a href="#" class="nav-brand">
                 <img src="Astolfo.webp" alt="Logo">
                 <span>unocheat.gay</span>
             </a>
             <div class="nav-links">
-                <a href="/#products">products</a>
-                <a href="pricing" class="active">pricing</a>
+                <a href="#products">products</a>
+                <a href="pricing.html">pricing</a>
                 <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="nav-discord-btn">
                     <i class="fab fa-discord"></i>
                     discord
                 </a>
             </div>
+            <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
-
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="section-label">products</div>
-        <h1>our products<span class="accent">.</span></h1>
-        <p>pick your game, grab a product, and get going. each one built clean and kept updated.</p>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">
+                software <span class="sep"></span> tools <span class="sep"></span> gaming
+            </div>
+            <h1 class="hero-title">unocheat<span class="accent">.</span>gay</h1>
+            <p class="hero-sub">
+                premium tools, clean builds, zero bloat.<br>pick what you need and get going.
+            </p>
+            <div class="hero-cta">
+                <a href="pricing.html" class="btn btn-fill">
+                    <i class="fas fa-tags" style="font-size:12px"></i>
+                    view pricing
+                </a>
+                <a href="https://discord.gg/Vcr8wUvHXg" target="_blank" class="btn btn-ghost">join discord</a>
+            </div>
+            <div class="hero-meta">
+                <span>instant delivery</span>
+                <span>no key system</span>
+                <span>24/7 support</span>
+            </div>
+        </div>
+        <img src="Astolfo.webp" alt="Astolfo" class="hero-img">
     </section>
-
-    <!-- Product Cards -->
-    <section class="products-section">
-        <div class="products-wrap">
-            <div class="products-grid reveal">
-
-                <!-- ============================================ -->
-                <!-- PRODUCT 1: ROBLOX                            -->
-                <!-- To edit: change game-name, game-desc, price, -->
-                <!-- features, and status (online/updating/offline)-->
-                <!-- ============================================ -->
-                <div class="product-card">
-                    <div class="game-icon"><i class="fas fa-dice-d6"></i></div>
-                    <div class="game-name">Roblox</div>
-                    <div class="game-desc">External cheat — aimbot, ESP, fly, speed, noclip. Usermode & undetected.
-                    </div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
-                    <div class="product-price">
-                        <span class="currency">$</span>
-                        <span class="amount">10</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> silent aimbot</li>
-                        <li><i class="fas fa-check"></i> clean ESP</li>
-                        <li><i class="fas fa-check"></i> fly / speed / noclip</li>
-                        <li><i class="fas fa-check"></i> auto updates</li>
-                    </ul>
-                    <button class="product-btn">purchase</button>
+    <!-- Products -->
+    <section id="products" class="products">
+        <div class="products-wrap reveal">
+            <div class="section-label">products</div>
+            <h2 class="section-title">what we offer.</h2>
+            <p class="section-sub">from game cheats to utility tools — we build clean, reliable software that just
+                works (somehow).</p>
+            <div class="products-grid">
+                <div class="p-card">
+                    <div class="p-icon"><i class="fas fa-crosshairs"></i></div>
+                    <h3>game cheats</h3>
+                    <p>silent aimbot, ESP, movement hacks. external & undetected.</p>
+                    <span class="p-tag">popular</span>
                 </div>
-
-                <!-- ============================================ -->
-                <!-- PRODUCT 2: FORTNITE                          -->
-                <!-- ============================================ -->
-                <div class="product-card">
-                    <div class="game-icon"><i class="fas fa-crosshairs"></i></div>
-                    <div class="game-name">Fortnite</div>
-                    <div class="game-desc">Kernel-level cheat — aimbot, ESP, radar, and full customization.</div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
-                    <div class="product-price">
-                        <span class="currency">$</span>
-                        <span class="amount">20</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> prediction aimbot</li>
-                        <li><i class="fas fa-check"></i> box / skeleton ESP</li>
-                        <li><i class="fas fa-check"></i> radar hack</li>
-                        <li><i class="fas fa-check"></i> HWID spoofer included</li>
-                    </ul>
-                    <button class="product-btn">purchase</button>
+                <div class="p-card">
+                    <div class="p-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>utility tools</h3>
+                    <p>spoofers, cleaners, and system utilities for everyday use.</p>
+                    <span class="p-tag">essential</span>
                 </div>
-
-                <!-- ============================================ -->
-                <!-- PRODUCT 3: VALORANT                          -->
-                <!-- ============================================ -->
-                <div class="product-card">
-                    <div class="game-icon"><i class="fas fa-bolt"></i></div>
-                    <div class="game-name">Valorant</div>
-                    <div class="game-desc">External overlay — triggerbot, ESP, radar. Vanguard bypass built in.</div>
-                    <div class="game-status updating">
-                        <span class="dot"></span> updating
-                    </div>
-                    <div class="product-price">
-                        <span class="currency">$</span>
-                        <span class="amount">25</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> triggerbot</li>
-                        <li><i class="fas fa-check"></i> player ESP</li>
-                        <li><i class="fas fa-check"></i> 2D radar</li>
-                        <li><i class="fas fa-check"></i> Vanguard bypass</li>
-                    </ul>
-                    <button class="product-btn secondary">coming soon</button>
+                <div class="p-card">
+                    <div class="p-icon"><i class="fas fa-code"></i></div>
+                    <h3>custom scripts</h3>
+                    <p>lua & python scripts for automation, bots, and more.</p>
+                    <span class="p-tag">flexible</span>
                 </div>
-
-                <!-- ============================================ -->
-                <!-- PRODUCT 4: CS2                               -->
-                <!-- ============================================ -->
-                <div class="product-card">
-                    <div class="game-icon"><i class="fas fa-gun"></i></div>
-                    <div class="game-name">CS2</div>
-                    <div class="game-desc">External cheat — aimbot, wallhack, triggerbot. VAC undetected.</div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
-                    <div class="product-price">
-                        <span class="currency">$</span>
-                        <span class="amount">15</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> smooth aimbot</li>
-                        <li><i class="fas fa-check"></i> wallhack</li>
-                        <li><i class="fas fa-check"></i> triggerbot</li>
-                        <li><i class="fas fa-check"></i> skin changer</li>
-                    </ul>
-                    <button class="product-btn">purchase</button>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- PRODUCT 5: RUST                              -->
-                <!-- ============================================ -->
-                <div class="product-card">
-                    <div class="game-icon"><i class="fas fa-shield-halved"></i></div>
-                    <div class="game-name">Rust</div>
-                    <div class="game-desc">Internal cheat — aimbot, ESP, no recoil. EAC bypass included.</div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
-                    <div class="product-price">
-                        <span class="currency">$</span>
-                        <span class="amount">20</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> magic bullet</li>
-                        <li><i class="fas fa-check"></i> player ESP</li>
-                        <li><i class="fas fa-check"></i> no recoil</li>
-                        <li><i class="fas fa-check"></i> EAC bypass</li>
-                    </ul>
-                    <button class="product-btn">purchase</button>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- PRODUCT 6: SPOOFER                           -->
-                <!-- ============================================ -->
-                <div class="product-card">
-                    <div class="game-icon"><i class="fas fa-fingerprint"></i></div>
-                    <div class="game-name">HWID Spoofer</div>
-                    <div class="game-desc">Universal spoofer — works with all games. Clean your hardware ID in seconds.
-                    </div>
-                    <div class="game-status online">
-                        <span class="dot"></span> online
-                    </div>
-                    <div class="product-price">
-                        <span class="currency">$</span>
-                        <span class="amount">8</span>
-                        <span class="period">/month</span>
-                    </div>
-                    <ul class="product-features">
-                        <li><i class="fas fa-check"></i> all anti-cheats</li>
-                        <li><i class="fas fa-check"></i> disk / serial spoof</li>
-                        <li><i class="fas fa-check"></i> MAC spoof</li>
-                        <li><i class="fas fa-check"></i> one-click clean</li>
-                    </ul>
-                    <button class="product-btn">purchase</button>
-                </div>
-
             </div>
         </div>
     </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="faq-wrap reveal">
-            <div class="section-label" style="text-align:center">faq</div>
-            <div class="section-title">questions?</div>
-
-            <div class="faq-item">
-                <div class="faq-q">
-                    <span>How do I get my product after paying?</span>
-                    <i class="fas fa-chevron-down"></i>
+    <!-- Why Us -->
+    <section class="why">
+        <div class="why-wrap reveal">
+            <div class="section-label">why us</div>
+            <h2 class="section-title">numbers don't lie.</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-num">2k<span class="accent">+</span></div>
+                    <div class="why-label">happy users</div>
                 </div>
-                <div class="faq-a">You'll receive instant access via our Discord server. After payment, a bot will
-                    assign your role and you can download directly from the members-only channel.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-q">
-                    <span>Can I switch products later?</span>
-                    <i class="fas fa-chevron-down"></i>
+                <div class="why-card">
+                    <div class="why-num">99<span class="accent">%</span></div>
+                    <div class="why-label">uptime</div>
                 </div>
-                <div class="faq-a">Yes! Your subscription is per-product. You can subscribe to as many as you want, and
-                    cancel or switch anytime.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-q">
-                    <span>Is there a refund policy?</span>
-                    <i class="fas fa-chevron-down"></i>
+                <div class="why-card">
+                    <div class="why-num">24<span class="accent">/7</span></div>
+                    <div class="why-label">support</div>
                 </div>
-                <div class="faq-a">We offer refunds within 24 hours of purchase if you haven't used the product yet.
-                    Reach out on Discord and we'll sort it out.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-q">
-                    <span>What payment methods do you accept?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-a">We accept crypto (BTC, ETH, LTC), PayPal, and card payments through our secure
-                    checkout system.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-q">
-                    <span>What does "updating" status mean?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-a">It means the product is being updated to work with the latest game patch. Existing
-                    users keep access — it'll be back online shortly.</div>
             </div>
         </div>
     </section>
-
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-card reveal">
+            <img src="Astolfo2.png" alt="Astolfo" id="astolfo-cta">
+            <h2>Ready to start?</h2>
+            <div class="ver">browse plans &middot; instant access</div>
+            <a href="pricing" class="cta-btn">
+                <i class="fas fa-arrow-right" style="font-size: 12px"></i>
+                view pricing
+            </a>
+        </div>
+    </section>
     <!-- Footer -->
     <footer>
         <div class="footer-inner">
@@ -938,8 +1055,18 @@
         </div>
     </footer>
 
+    <!-- Astolfo Nya Sound Effects -->
+    <audio id="nya1" preload="auto">
+        <source src="Nya1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="nya2" preload="auto">
+        <source src="Nya2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
-        // Scroll reveal
+        // Scroll reveal (your existing code)
         const obs = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
@@ -948,20 +1075,24 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-        // FAQ accordion
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-                if (!isOpen) item.classList.add('open');
+        // Astolfo Nya sound on click
+        const astolfoCTA = document.getElementById('astolfo-cta');
+        const nyaSounds = [
+            document.getElementById('nya1'),
+            document.getElementById('nya2')
+        ];
+
+        astolfoCTA.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * nyaSounds.length);
+            const selectedSound = nyaSounds[randomIndex];
+            selectedSound.currentTime = 0; // Reset to start for spam clicks
+            selectedSound.play().catch(err => {
+                console.log("Play failed (browser policy?):", err);
             });
         });
     </script>
 </body>
 
 </html>
-
-
